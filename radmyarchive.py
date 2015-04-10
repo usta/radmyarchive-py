@@ -6,7 +6,7 @@ import getopt
 from colorama import init
 from termcolor import colored
 import radmyarchive
-import radmyarchive.radmyarchiveexceptions
+
 
 
 def usage(exit_status):

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import os
 import sys
 import getopt
 from colorama import init
 from termcolor import colored
-from radmyarchive import *
-from radmyarchive.radmyarchiveexceptions import *
+import radmyarchive
+import radmyarchive.radmyarchiveexceptions
 
 
 def usage(exit_status):
@@ -29,7 +29,7 @@ def usage(exit_status):
 
 def show_version():
     """Show the program version."""
-    print('Version %s on Python%s' % (__version__,
+    print('Version %s on Python%s' % (radmyarchive.__version__,
                                       sys.version_info[0]))
     sys.exit(0)
 
@@ -74,13 +74,13 @@ def main():
             continue
 
         try:
-            a = RADMyArchive(os.path.join(source, currentFile),
+            a = radmyarchive.RADMyArchive(os.path.join(source, currentFile),
                              destination=destination,
                              move=move)
 
             print("%s --> %s" % (colored(currentFile, "green"),
                                  colored(a.getDestinationFilePath(), "yellow")))
-        except Error as e:
+        except radmyarchive.radmyarchiveexceptions.Error as e:
             print("%s : %s" % (colored(e.expr, "red"),
                                e.msg))
 

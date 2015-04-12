@@ -7,7 +7,7 @@ import os
 import shutil
 import time
 from .radmyarchiveexceptions import *
-__version__ = "1.0.0"
+__version__ = "1.0.5"
 
 class RADMyArchive:
 

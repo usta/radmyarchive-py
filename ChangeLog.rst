@@ -1,5 +1,9 @@
 Change Log
 ==========
+1.0.5 2015-04-12
+    * Raw image format extensions added
+    * Fix for python3 env for python2 default envs
+    
 1.0.0 2015-04-10
     * First Commit to Github
 

@@ -42,7 +42,9 @@ def main():
     source = ""
     destination = ""
     move = False
-    extensions = {".jpg", ".png", ".gif", ".jpeg", ".png"}
+    extensions = {".jpg", ".png", ".gif", ".jpeg", ".png", ".arw", ".srf", ".sr2", ".bay", ".crw", ".cr2",
+                  ".cap", ".tif", ".iiq", ".eip", ".dcs", ".dcr", ".drf", ".k25", ".kdc", ".tif", ".dng",
+                  ".erf", ".fff", ".mef", ".mos", ".mrw", ".raw"}
 
     init()  #colorama - Colorful output
 

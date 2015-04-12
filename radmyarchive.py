@@ -44,7 +44,8 @@ def main():
     move = False
     extensions = {".jpg", ".png", ".gif", ".jpeg", ".png", ".arw", ".srf", ".sr2", ".bay", ".crw", ".cr2",
                   ".cap", ".tif", ".iiq", ".eip", ".dcs", ".dcr", ".drf", ".k25", ".kdc", ".tif", ".dng",
-                  ".erf", ".fff", ".mef", ".mos", ".mrw", ".raw"}
+                  ".erf", ".fff", ".mef", ".mos", ".mrw", ".nef", ".nrw", ".orf", ".ptx", ".pef",
+                  ".pxn", ".r3d", ".raf", ".raw", ".rw2", ".raw", ".rwl", ".dng", ".rwz", ".x3f" }
 
     init()  #colorama - Colorful output
 

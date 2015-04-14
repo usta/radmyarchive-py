@@ -1,5 +1,8 @@
 Change Log
 ==========
+1.1.1 2015-04-14
+    * Fix setup.py import bug ( Thanks to Umut Karcı )
+    
 1.1.0 2015-04-14
     * a python bug fixed with changing scripts name to uppercase
     * fix for linux builds ( use os.path.join instead os string operations for path )

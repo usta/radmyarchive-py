@@ -35,4 +35,3 @@ Show command line options::
 
     $ RADMYARCHIVE.py
 
-    

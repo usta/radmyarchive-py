@@ -4,15 +4,22 @@
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
-import radmyarchive
+import re
+import ast
 here = path.abspath(path.dirname(__file__))
+
+_version_re = re.compile(r'__version__\s+=\s+(.*)')
+
+with open('radmyarchive/__init__.py', 'rb') as vf:
+    version = str(ast.literal_eval(_version_re.search(
+        vf.read().decode('utf-8')).group(1)))
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     readme_file = f.read()
 
 setup(
     name="radmyarchive",
-    version=radmyarchive.__version__,
+    version=version,
     author="Ömer Fadıl Usta",
     author_email="omerusta@gmail.com",
     packages=find_packages(),

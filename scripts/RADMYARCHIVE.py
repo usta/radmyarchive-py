@@ -8,6 +8,7 @@ from termcolor import colored
 import radmyarchive
 
 
+
 def usage(exit_status):
     """Show command line usage."""
     msg = ('Usage: RADMYARCHIVE.py [ -m ] SourceDirectory [ -o OutputDirectory ]\n'

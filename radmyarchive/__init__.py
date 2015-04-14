@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+__version__ = "1.1.0"
+
+
 from fileinput import close
 import exifread
 import os
 import shutil
 import time
 from .radmyarchiveexceptions import *
-__version__ = "1.0.5"
+
 
 class RADMyArchive:
-
-    def __init__(self, filepath, destination=".\\NewImageArchive", move=False):
+    def __init__(self, filepath, destination=".//NewImageArchive", move=False):
 
         self._filePath = filepath
         self._fileExt = os.path.splitext(self._filePath)[1]
@@ -48,11 +50,12 @@ class RADMyArchive:
                             self._destinationFilePath)
 
     def _createDestinationDirs(self):
+        path = os.path.join(self._destinationBasePath,
+                            self.getYear(),
+                            self.getMonth(),
+                            self.getDay())
         try:
-            os.makedirs(self._destinationBasePath+"\\" +
-                        self.getYear()+"\\" +
-                        self.getMonth()+"\\" +
-                        self.getDay(),
+            os.makedirs(path,
                         exist_ok=True)
         except:
             raise CreateDirError(self._destinationBasePath,
@@ -86,6 +89,7 @@ class RADMyArchive:
                                               self._imgMonth,
                                               self._imgDay,
                                               self._imgTime))
+
     def _parseDateExif(self, tags):
         if 'EXIF DateTimeOriginal' not in tags.keys():
             if 'Image DateTime' in tags.keys():

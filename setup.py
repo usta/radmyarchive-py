@@ -5,7 +5,6 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 import radmyarchive
-
 here = path.abspath(path.dirname(__file__))
 
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
@@ -17,11 +16,12 @@ setup(
     author="Ömer Fadıl Usta",
     author_email="omerusta@gmail.com",
     packages=find_packages(),
-    scripts=["radmyarchive.py"],
+    scripts=["scripts/RADMYARCHIVE.py"],
     url="https://github.com/usta/radmyarchive-py",
     license="BSD",
     keywords="exif image photo rename metadata arrange rearrange catalogue",
     description="A simple photo rearranger with help of EXIF tags",
+    install_requires=['exifread', 'termcolor', 'colorama'],
     long_description=readme_file,
     classifiers=(
         "Development Status :: 3 - Alpha",
@@ -31,8 +31,6 @@ setup(
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
         "Topic :: Utilities",
     ),
-    install_requires=['ExifRead', 'termcolor', 'colorama'],
 )

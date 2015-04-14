@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
+import os.path
 import sys
 import getopt
 from colorama import init
@@ -8,10 +8,9 @@ from termcolor import colored
 import radmyarchive
 
 
-
 def usage(exit_status):
     """Show command line usage."""
-    msg = ('Usage: radmyarchive.py [ -m ] SourceDirectory [ -o OutputDirectory ]\n'
+    msg = ('Usage: RADMYARCHIVE.py [ -m ] SourceDirectory [ -o OutputDirectory ]\n'
            'RadMyArchive ( RenameAsDate My Archive ) Rearranges Image files according to their\n'
            'EXIF DateTimeOriginal information.\n\nOptions:\n'
            '-h              --help                          Display usage information and exit.\n'
@@ -26,7 +25,6 @@ def usage(exit_status):
     sys.exit(exit_status)
 
 
-
 def show_version():
     """Show the program version."""
     print('Version %s on Python%s' % (radmyarchive.__version__,
@@ -38,16 +36,17 @@ def main():
     """Parse command line options/arguments and execute."""
     args = []
     opts = []
-    pattern = "*"  # TODO
+    # TODO pattern = "*"
     source = ""
     destination = ""
     move = False
     extensions = {".jpg", ".png", ".gif", ".jpeg", ".png", ".arw", ".srf", ".sr2", ".bay", ".crw", ".cr2",
                   ".cap", ".tif", ".iiq", ".eip", ".dcs", ".dcr", ".drf", ".k25", ".kdc", ".tif", ".dng",
                   ".erf", ".fff", ".mef", ".mos", ".mrw", ".nef", ".nrw", ".orf", ".ptx", ".pef",
-                  ".pxn", ".r3d", ".raf", ".raw", ".rw2", ".raw", ".rwl", ".dng", ".rwz", ".x3f" }
+                  ".pxn", ".r3d", ".raf", ".raw", ".rw2", ".raw", ".rwl", ".dng", ".rwz", ".x3f"}
 
-    init()  #colorama - Colorful output
+    # colorama - Colorful output
+    init()
 
     try:
         arg_names = ["help", "version", "move", "output="]
@@ -78,8 +77,8 @@ def main():
 
         try:
             a = radmyarchive.RADMyArchive(os.path.join(source, currentFile),
-                             destination=destination,
-                             move=move)
+                                          destination=destination,
+                                          move=move)
 
             print("%s --> %s" % (colored(currentFile, "green"),
                                  colored(a.getDestinationFilePath(), "yellow")))
@@ -91,7 +90,7 @@ def main():
 def listFiles(path):
     """Yield file names not starting with '.' under given path."""
     if not os.path.exists(path):
-        print("%s : Path couldn't be found! Make sure to wrap your path between \" and \"" % colored(path,"red"))
+        print("%s : Path couldn't be found! Make sure to wrap your path between \" and \"" % colored(path, "red"))
         usage(2)
 
     if sys.version_info[0] == 3 and sys.version_info[1] >= 5:

@@ -1,5 +1,9 @@
 Change Log
 ==========
+1.2.0 2015-04-19
+    * Fix for same-named but different photos
+    * (Need to implement Md5 check for checking if it is samefile or not )
+
 1.1.5 2015-04-19
     * Fix for uppercase extensions
 

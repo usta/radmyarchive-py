@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-__version__ = "1.1.5"
+__version__ = "1.2.0"
 
 
 from fileinput import close
@@ -30,12 +30,24 @@ class RADMyArchive:
         self._parseDate()
         self._createDestinationDirs()
 
+        self._prepareDestinationFilePath()
+
+        self._fileOperation()
+
+    def _prepareDestinationFilePath(self):
+        count = 1
+        self._calculateDestinationFilePath()
+        while os.path.exists(self._destinationFilePath):
+            # TODO : Need to implement md5 checking in here
+            count += 1
+            self._calculateDestinationFilePath("_(" + str(count) + ")")
+
+
+    def _calculateDestinationFilePath(self, suffix=""):
         self._destinationFilePath = os.path.join(self._destinationBasePath,
                                                  self._imgYear,
                                                  self._imgMonth,
-                                                 self._imgDay, "") + self._imgFullDate + self._fileExt
-
-        self._fileOperation()
+                                                 self._imgDay, "") + self._imgFullDate + suffix + self._fileExt
 
     def _fileOperation(self):
         if os.path.exists(self._destinationFilePath):

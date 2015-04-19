@@ -41,10 +41,10 @@ def main():
     source = ""
     destination = ""
     move = False
-    extensions = {".jpg", ".png", ".gif", ".jpeg", ".png", ".arw", ".srf", ".sr2", ".bay", ".crw", ".cr2",
-                  ".cap", ".tif", ".iiq", ".eip", ".dcs", ".dcr", ".drf", ".k25", ".kdc", ".tif", ".dng",
-                  ".erf", ".fff", ".mef", ".mos", ".mrw", ".nef", ".nrw", ".orf", ".ptx", ".pef",
-                  ".pxn", ".r3d", ".raf", ".raw", ".rw2", ".raw", ".rwl", ".dng", ".rwz", ".x3f"}
+    extensions = [".JPG", ".PNG", ".GİF", ".GIF", ".JPEG", ".ARW", ".SRF", ".SR2", ".BAY", ".CRW", ".CR2",
+                  ".CAP", ".TIF", ".IIQ", "İİQ", ".EIP", "EİP", ".DCS", ".DCR", ".DRF", ".K25", ".KDC", ".DNG",
+                  ".ERF", ".FFF", ".MEF", ".MOS", ".MRW", ".NEF", ".NRW", ".ORF", ".PTX", ".PEF",
+                  ".PXN", ".R3D", ".RAF", ".RAW", ".RW2", ".RW1", ".RWZ", ".X3F"]
 
     # colorama - Colorful output
     init()
@@ -73,7 +73,7 @@ def main():
         source = args[0]
 
     for currentFile in listFiles(source):
-        if os.path.splitext(currentFile)[1] not in extensions:
+        if os.path.splitext(currentFile)[1].upper() not in extensions:
             continue
 
         try:

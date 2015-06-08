@@ -29,7 +29,7 @@ Command line
 ************
 ::
 
-    $ RADMYARCHIVE.py RADMYARCHIVE.py [ -m ] SourceDirectory [ -o OutputDirectory ]
+    $ RADMYARCHIVE.py [ -m ] SourceDirectory [ -o OutputDirectory ]
 
 Show command line options::
 

@@ -11,7 +11,8 @@ I will soon begin a complete rewrite of the RADMyArchive project. This decision 
 2. **Enhanced Functionality:** The rewrite will allow for improved handling of EXIF data and better overall performance.
 3. **User Experience:** I aim to implement better error handling and user feedback mechanisms to enhance the usability of the tool.
 4. **Maintainability:** A fresh codebase will make it easier to maintain and extend the project in the future.
-5. ***Bored** I have nothing to do so :D
+
+
 ************
 RADMyArchive
 ************
